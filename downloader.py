@@ -15,10 +15,11 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.setupUi(self)
         self.show()
-
+        self.readyToDownload = False
         self.folderPath = None
 
         self.buttonPath.clicked.connect(self.findPath)
+        self.lineEditLink.textChanged.connect(self.signalFun)
 
         self.buttonDownload.clicked.connect(self.download)
 
@@ -29,13 +30,30 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEditPath.setText(self.folderPath)
 
 
+    def signalFun(self):
+        #TODO dorob namapovanie videa
+        #namapovanie videa a zsitenie jeho dostupnosti
+        url = self.lineEditLink.text()
+
+        try:
+            yt = YouTube(url)
+            self.readyToDownload = True
+        except:
+            self.labelError.setText("Unvalid video URL")
+            self.labelVideoTitle.setText('')
+            self.readyToDownload = False
+            return None
+
+        #pridanie fotky a titulu
+        self.labelVideoTitle.setText(yt.title)
+        self.labelError.setText("Video successfully found")
 
 
     def download(self):
-        if self.lineEditLink.text() and self.lineEditPath.text():
-            print(self.lineEditLink.text()," | ", self.lineEditPath.text())
+        if self.lineEditLink.text() and self.lineEditPath.text() and self.readyToDownload:
+            self.labelError.setText("Starting download")
         else:
-            print("Error occurs -> Path or Link is not filled")
+            self.labelError.setText("Error occurs -> Video Link or  Folder Path are not filled correctly")
 
 
 def main():

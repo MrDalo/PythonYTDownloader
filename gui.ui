@@ -51,7 +51,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>460</y>
+      <y>360</y>
       <width>641</width>
       <height>31</height>
      </rect>
@@ -62,14 +62,14 @@
      </font>
     </property>
     <property name="text">
-     <string>dafsdfasdfsadfsa</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>410</y>
+      <y>310</y>
       <width>361</width>
       <height>41</height>
      </rect>
@@ -87,7 +87,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>460</y>
+      <y>360</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -118,7 +118,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>540</y>
+      <y>440</y>
       <width>671</width>
       <height>23</height>
      </rect>
@@ -131,23 +131,40 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>610</y>
-      <width>571</width>
-      <height>141</height>
+      <y>510</y>
+      <width>681</width>
+      <height>251</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="labelError">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>620</y>
-      <width>561</width>
-      <height>121</height>
+      <y>520</y>
+      <width>651</width>
+      <height>231</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0)</string>
+    </property>
     <property name="text">
-     <string>sadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asadfasdfasd fasd fasd fasdf sadf asdaf asdaf a</string>
+     <string/>
     </property>
     <property name="textFormat">
      <enum>Qt::PlainText</enum>
@@ -174,32 +191,25 @@
    <widget class="QLabel" name="labelVideoTitle">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>160</y>
-      <width>931</width>
-      <height>31</height>
+      <x>60</x>
+      <y>210</y>
+      <width>861</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelVideoImage">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>210</y>
-      <width>611</width>
-      <height>181</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 226, 109)</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
     </property>
    </widget>
   </widget>
