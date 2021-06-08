@@ -8,6 +8,7 @@ from gui import Ui_MainWindow
 from PyQt5 import QtGui
 from PyQt5.QtGui import *
 
+
 class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
@@ -17,6 +18,8 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
         self.show()
         self.readyToDownload = False
         self.folderPath = None
+        self.fileSize = 0
+        self.yt = None
 
         self.buttonPath.clicked.connect(self.findPath)
         self.lineEditLink.textChanged.connect(self.signalFun)
@@ -29,6 +32,8 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
         self.folderPath = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Folder')
         self.lineEditPath.setText(self.folderPath)
 
+        #TODO dopisanie cesty rucne
+
 
     def signalFun(self):
         #TODO dorob namapovanie videa
@@ -36,7 +41,7 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
         url = self.lineEditLink.text()
 
         try:
-            yt = YouTube(url)
+            self.yt = YouTube(url, on_progress_callback=self.progressBar)
             self.readyToDownload = True
         except:
             self.labelError.setText("Unvalid video URL")
@@ -45,13 +50,28 @@ class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
             return None
 
         #pridanie fotky a titulu
-        self.labelVideoTitle.setText(yt.title)
+        self.labelVideoTitle.setText(self.yt.title)
         self.labelError.setText("Video successfully found")
 
+    def progressBar(self, chunk, bytes_remaining):
+        print("I am in progressBar")
 
     def download(self):
         if self.lineEditLink.text() and self.lineEditPath.text() and self.readyToDownload:
             self.labelError.setText("Starting download")
+            # selecting right video
+            video = self.yt.streams
+            all_video = video
+            video = video.filter(progressive=True, res='720p')
+
+            # choosing first option
+            video = video.first()
+            if video is None:
+                video = all_video.filter(progressive=True)
+                video = video.first()
+            # downloading the video
+            self.labelError.setText(f"{self.labelError.text()} \n {video}")
+            video.download(self.folderPath)
         else:
             self.labelError.setText("Error occurs -> Video Link or  Folder Path are not filled correctly")
 
