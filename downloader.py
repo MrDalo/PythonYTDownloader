@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from pytube import YouTube
-import os
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets
 from gui import Ui_MainWindow
-from PyQt5 import QtGui
-from PyQt5.QtGui import *
+
 
 
 class Downloader(QtWidgets.QMainWindow, Ui_MainWindow):
